@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyName: key1
+  KeySprite: {fileID: 21300000, guid: 068c9d45945b81d4eafe499b6879b806, type: 3}
 --- !u!1001 &1281159509647167591
 PrefabInstance:
   m_ObjectHideFlags: 0

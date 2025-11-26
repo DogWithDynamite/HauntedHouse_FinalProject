@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
+    public KeyUIManager keyUIManager;
+
     Animator m_Animator;
     public InputAction MoveAction;
 
@@ -61,9 +64,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void AddKey(string keyName)
+    public void AddKey(string keyName, Sprite keySprite = null)
     {
         m_OwnedKeys.Add(keyName);
+        if (keyUIManager != null && keySprite != null)
+        {
+            keyUIManager.AddKeyUI(keyName, keySprite);
+        }
     }
 
     public bool OwnKey(string keyName)
