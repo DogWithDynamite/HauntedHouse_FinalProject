@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     public KeyUIManager keyUIManager;
 
     Animator m_Animator;
@@ -13,6 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float walkSpeed = 1.0f;
     public float turnSpeed = 20f;
+
+    public bool isSprinting = false;
+    public float sprintSpeed = 2.0f;
+    public float stamina = 5.0f;
+    public bool isTired = false;
+    public float tiredSpeed = 0.5f;
+    public Image StaminaBar;
+    public Image TiredBar;
+
+    
+    public GameObject SB;
+    public GameObject TB;
 
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
@@ -62,15 +76,61 @@ public class PlayerMovement : MonoBehaviour
             m_AudioSource.Stop();
         }
 
-    }
-
-    public void AddKey(string keyName, Sprite keySprite = null)
-    {
-        m_OwnedKeys.Add(keyName);
-        if (keyUIManager != null && keySprite != null)
+        if(Input.GetKey(KeyCode.LeftShift))
         {
-            keyUIManager.AddKeyUI(keyName, keySprite);
+            if (isTired == false)
+            {
+                isSprinting = true;
+            }
+            else
+            {
+            }
         }
+        else
+        {
+            isSprinting = false;
+        }
+
+        if (isSprinting == true)
+        {
+            walkSpeed = sprintSpeed;
+            stamina -= Time.deltaTime;
+        }
+        else
+        {
+            walkSpeed = 1.0f;
+            stamina += Time.deltaTime;
+        }
+
+        if (stamina <= 0f)
+        {
+            isTired = true;
+        }
+
+        if (isTired == true)
+        {
+            SB.SetActive(false);
+            TB.SetActive(true);
+            isSprinting = false;
+            walkSpeed = tiredSpeed;
+            stamina += Time.deltaTime;
+        }
+        else
+        {
+            SB.SetActive(true);
+            TB.SetActive(false);
+        }
+
+        if (stamina >= 5.0f)
+        {
+            stamina = 5.0f;
+            isTired = false;
+        }
+
+        StaminaBar.fillAmount = stamina / 5.0f;
+        TiredBar.fillAmount = stamina / 5.0f;
+
+
     }
 
     public bool OwnKey(string keyName)
@@ -78,4 +138,12 @@ public class PlayerMovement : MonoBehaviour
         return m_OwnedKeys.Contains(keyName);
     }
 
+   public void AddKey(string keyName, Sprite keySprite = null)
+    {
+        m_OwnedKeys.Add(keyName);
+        if (keyUIManager != null && keySprite != null)
+        {
+            keyUIManager.AddKeyUI(keyName, keySprite);
+        }
+    }
 }
