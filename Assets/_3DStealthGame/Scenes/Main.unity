@@ -210,8 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd14e00955f700648aaa0aed432e05ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaBar
-  playerMovement: {fileID: 1918294514}
-  Bar: {fileID: 89006076}
 --- !u!114 &89006076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,8 +477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd14e00955f700648aaa0aed432e05ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaBar
-  playerMovement: {fileID: 1918294514}
-  Bar: {fileID: 224128100}
 --- !u!1 &248445120
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +751,7 @@ RectTransform:
   m_GameObject: {fileID: 479805503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9051233, y: 0.9051233, z: 0.9051233}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2066125791}
@@ -763,9 +759,9 @@ RectTransform:
   - {fileID: 89006074}
   m_Father: {fileID: 596351143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -539.31, y: 351}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &531635125
@@ -3443,18 +3439,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 770854880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1918294514 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4366764762628764135, guid: 9b215c98989442a42a4ee11cdd2789dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 770854880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918294509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026ffd4661f3b544fad754bab81bf404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1001 &2003599767
 PrefabInstance:
   m_ObjectHideFlags: 0
